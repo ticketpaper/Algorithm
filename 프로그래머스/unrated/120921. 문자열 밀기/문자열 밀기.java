@@ -12,8 +12,7 @@ class Solution {
         }
         if(A.equals(B)){
             answer =0;
-        }
-        if(!(sb.toString().equals(B))){
+        } else if(!(sb.toString().equals(B))){
             answer =-1;
         }
         return answer;
