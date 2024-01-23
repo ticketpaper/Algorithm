@@ -2,17 +2,17 @@ import java.util.*;
 class Solution {
     public int solution(int[] priorities, int location) {
         Queue<prio_index> queue = new ArrayDeque<>();
-        Queue<Integer> maxIndex = new PriorityQueue<>(Comparator.reverseOrder());
+        Queue<Integer> maxQueue = new PriorityQueue<>(Comparator.reverseOrder());
         int index = 0;
         int max = 0;
         int answer = 0;
 
         for (int priority : priorities) {
             queue.add(new prio_index(priority,index));
-            maxIndex.add(priority);
+            maxQueue.add(priority);
             index += 1;
         }
-        max = maxIndex.poll();
+        max = maxQueue.poll();
 
 
         while (!queue.isEmpty()) {
@@ -22,7 +22,7 @@ class Solution {
                     break;
                 } else {
                     queue.poll();
-                    max = maxIndex.poll();
+                    max = maxQueue.poll();
                     answer++;
                 }
             } else {
